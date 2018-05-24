@@ -23,7 +23,7 @@ RUN chgrp $APP_USER $APP_HOME/local_settings.py
 
 VOLUME /data
 
-EXPOSE 80
+EXPOSE 80 8000
 
 WORKDIR $APP_HOME
 
