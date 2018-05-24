@@ -3,7 +3,7 @@ MAINTAINER Richard Kojedzinszky <krichy@nmdps.net>
 
 ENV APP_USER=docker-registry-auth \
     APP_HOME=/opt/docker-registry-auth \
-    AUTH_REVISION=d23ee8b79b3cb341a02ee656df1e1072668347b2
+    AUTH_REVISION=410c930dcf925b69f66d085879727d8d5a132476
 
 RUN apk add --no-cache openssl supervisor nginx && \
 	mkdir -p /data $APP_HOME && \
