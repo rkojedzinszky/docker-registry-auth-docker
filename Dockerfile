@@ -14,6 +14,7 @@ RUN apk add --no-cache -t .build-deps gcc make libffi-dev postgresql-dev curl ta
 	curl -L https://github.com/rkojedzinszky/docker-registry-auth/archive/$AUTH_REVISION.tar.gz | tar xzf - --strip-components=1 && \
 	pip install -U pip uwsgi -r requirements.txt && \
 	apk del .build-deps && \
+	python manage.py test && \
 	python manage.py collectstatic --no-input && \
 	rm -rf /root/.cache
 
