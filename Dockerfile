@@ -1,9 +1,9 @@
-FROM python:2-alpine
-MAINTAINER Richard Kojedzinszky <krichy@nmdps.net>
+FROM python:3-alpine
+MAINTAINER Richard Kojedzinszky <richard@kojedz.in>
 
 ENV APP_USER=docker-registry-auth \
     APP_HOME=/opt/docker-registry-auth \
-    AUTH_REVISION=410c930dcf925b69f66d085879727d8d5a132476
+    AUTH_REVISION=3b89cde5a19271d347e736d83858278cbc254b43
 
 RUN apk add --no-cache openssl supervisor nginx && \
 	mkdir -p /data $APP_HOME && \
