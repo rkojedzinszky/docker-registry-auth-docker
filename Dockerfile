@@ -8,7 +8,8 @@ ENV APP_USER=docker-registry-auth \
 RUN apk add --no-cache openssl supervisor nginx py3-psycopg2 uwsgi-python3 openssl \
         py3-cryptography py3-jwt && \
 	mkdir -p /data $APP_HOME && \
-	adduser -D -H -h $APP_HOME $APP_USER
+	adduser -u 17490 -D -H -h $APP_HOME $APP_USER && \
+	chown -R $APP_USER /var/lib/nginx /var/log/nginx
 
 RUN apk add --no-cache -t .build-deps curl tar && \
 	cd /opt/docker-registry-auth && \
@@ -21,11 +22,13 @@ RUN apk add --no-cache -t .build-deps curl tar && \
 
 ADD assets/ /
 
-EXPOSE 80
+EXPOSE 8080
 
 WORKDIR $APP_HOME
 
 ENV UWSGI_THREADS 4
+
+USER 17490
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
