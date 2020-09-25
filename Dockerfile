@@ -3,7 +3,7 @@ MAINTAINER Richard Kojedzinszky <richard@kojedz.in>
 
 ENV APP_USER=docker-registry-auth \
     APP_HOME=/opt/docker-registry-auth \
-    AUTH_REVISION=2f01b88dc19d4b22d767aacb3867ae5e2baa22d8
+    AUTH_REVISION=71365df949914f7b9ea9ae7a13f4272efe9fbb50
 
 RUN apk add --no-cache openssl supervisor nginx py3-psycopg2 uwsgi-python3 openssl \
         py3-cryptography py3-jwt && \
